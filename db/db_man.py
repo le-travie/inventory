@@ -9,9 +9,10 @@ port = config("PORT")
 db = config("DB")
 
 db_url = f"postgresql+psycopg2://{user}:{pwd}@{host}:{port}/{db}"
-db_engine = create_engine(db_url, echo=False)
+db_engine = create_engine(db_url, echo=True)
 
 MasterSession = sessionmaker(bind=db_engine, autocommit=False)
+
 
 class Base(DeclarativeBase):
     pass

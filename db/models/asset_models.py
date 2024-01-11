@@ -15,7 +15,7 @@ class AssetModel(Base):
     asset_num: Mapped[str] = mapped_column(
         String(45), nullable=False, unique=True, index=True
     )
-    desc: Mapped[str] = mapped_column(String(240), nullable=False)
+    descript: Mapped[str] = mapped_column(String(240), nullable=False)
     location: Mapped[str] = mapped_column(Text, nullable=False)
     remarks: Mapped[str] = mapped_column(Text, nullable=True)
     date_in: Mapped[datetime] = mapped_column(default=datetime.utcnow, nullable=False)
@@ -35,7 +35,7 @@ class TransferModel(Base):
         ForeignKey("assets.asset_num", ondelete="CASCADE", onupdate="CASCADE"),
         nullable=False,
     )
-    desc: Mapped[str] = mapped_column(String(240), nullable=True)
+    descript: Mapped[str] = mapped_column(String(240), nullable=True)
     qty: Mapped[int] = mapped_column(nullable=False)
     current_loc: Mapped[str] = mapped_column(Text, nullable=False)
     new_loc: Mapped[str] = mapped_column(Text, nullable=False)

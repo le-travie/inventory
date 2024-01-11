@@ -6,9 +6,9 @@ from pydantic import BaseModel
 
 class AssetBase(BaseModel):
     asset_num: str
-    desc: str
+    descript: str
     location: str
-    remarks: str
+    remarks: Optional[str]
     mod_by: str
 
 

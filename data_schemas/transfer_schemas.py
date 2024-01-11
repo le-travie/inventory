@@ -6,7 +6,7 @@ from pydantic import BaseModel, UUID4
 
 class TransferBase(BaseModel):
     asset_num: str
-    desc: str
+    descript: str
     qty: int
     current_loc: str
     new_loc: str

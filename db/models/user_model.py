@@ -27,4 +27,4 @@ class UserModel(Base):
     pwd: Mapped[str] = mapped_column(String(255), nullable=False)
     gender: Mapped[Gender] = mapped_column(nullable=False)
     role: Mapped[Role] = mapped_column(nullable=False)
-    title: Mapped(String(50), nullable=True)
+    title: Mapped[str] = mapped_column(String(50), nullable=True)

@@ -1,7 +1,7 @@
 from typing import List
 
 from sqlalchemy import select, insert, update, delete
-from pydantic import ValidationError, UUID4
+from pydantic import UUID4
 
 from db.db_man import MasterSession
 from data_schemas.transfer_schemas import (

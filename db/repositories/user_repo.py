@@ -10,7 +10,9 @@ from data_schemas.user_schemas import NewUserSchema, UserEditSchema, UserSchema
 
 
 def create_user(new_user: NewUserSchema) -> None:
-    query = insert(User).values(**new_user.model_dump(exclude_unset=True))
+    query = insert(User).values(
+        **new_user.model_dump(exclude_unset=True, exclude_none=None)
+    )
     session = MasterSession()
     with session as conn:
         conn.execute(query)

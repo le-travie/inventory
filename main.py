@@ -2,7 +2,9 @@ from tkinter import Tk
 
 from db.db_man import db_engine
 from db.models import asset_models, user_model
-from ui.login_view import LoginWindow
+
+# from ui.login_view import LoginWindow
+from ui.main_view import MainView
 
 
 def table_gen() -> None:
@@ -20,5 +22,5 @@ def table_gen() -> None:
 
 if __name__ == "__main__":
     root = Tk()
-    LoginWindow(root)
+    MainView(root)
     root.mainloop()

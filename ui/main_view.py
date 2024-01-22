@@ -23,12 +23,24 @@ class MainView:
         # self.main_frame.columnconfigure(0, weight=2)
         self.main_frame.columnconfigure((0, 1, 2, 3, 4, 5), weight=1)
         self.main_frame.grid(row=0, column=0, sticky="NSEW")
-        self.render_table()
 
-    def render_table(self):
+        self.tab_container = ttk.Notebook(self.main_frame)
+        self.tab_container.grid(row=0, column=0, columnspan=5, rowspan=5)
+        self.tab_1 = ttk.Frame(self.tab_container)
+        self.render_assets_table()
+        self.tab_2 = ttk.Frame(self.tab_container)
+        self.tab_container.add(self.tab_1, text="Assets", sticky="NSEW")
+        self.tab_container.add(self.tab_2, text="Transfers")
+
+    def render_assets_table(self):
+        # main_frame = ttk.Frame(self.tab_1)
+        # main_frame.rowconfigure((0, 1, 2, 3, 4), weight=1)
+        # main_frame.columnconfigure((0, 1, 2, 3, 4, 5), weight=1)
+        # main_frame.grid(row=0, column=0, sticky="NSEW")
+
         table_columns = ("id", "descript", "location", "remarks", "date_in")
         self.table = TableComponent(
-            self.main_frame,
+            self.tab_1,
             columns=table_columns,
             show="headings",
         )
@@ -69,7 +81,7 @@ class MainView:
             )
 
         self.table.row_colour("#E1F0DA", "#EEF5FF")
-        self.table.grid(column=1, row=0, columnspan=5, rowspan=5, sticky="NSEW")
+        self.table.grid(column=0, row=0)
         self.table.bind("<<TreeviewSelect>>", lambda _: self.table.get_selection())
         self.table.bind("<Delete>", lambda _: self.delete_selected())
 
